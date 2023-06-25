@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Lista1
       Lista99
   other-modules:
       Paths_Haskell_Learning
