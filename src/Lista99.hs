@@ -21,7 +21,7 @@ myButLast :: [a] -> a
 myButLast (_ : xs) = xs !! (length xs - 2)
 
 --Q3
-elementAt :: [a] -> Int -> a
+elementAt ::[a] -> Int -> a
 elementAt l pos = l !! (pos - 1)
 
 --Q4
@@ -43,6 +43,7 @@ isPalindrome l
 
 --Q8
 compress :: Eq a => [a] -> [a]
+compress [] = error "lista vazia"
 compress [x] = [x]
 compress (x : xs)
   | x == head (xs) = compress (xs)
