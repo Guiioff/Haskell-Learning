@@ -17,8 +17,8 @@ myLast :: [a] -> a
 myLast l = l !! (length l - 1)
 
 --Q2
-myButLast :: [a] -> a
-myButLast (x : xs) = xs !! (length xs - 2)
+myButLast ::[a] -> a
+myButLast (_ : xs) = xs !! (length xs - 2)
 
 --Q3
 elementAt :: [a] -> Int -> a
@@ -27,7 +27,7 @@ elementAt l pos = l !! (pos - 1)
 --Q4
 myLength :: [a] -> Int
 myLength [] = 0
-myLength (x : xs) = 1 + myLength (xs)
+myLength (_ : xs) = 1 + myLength (xs)
 
 --Q5
 myReverse :: [a] -> [a]
@@ -43,6 +43,7 @@ isPalindrome l
 
 --Q8
 compress :: Eq a => [a] -> [a]
+compress [] = error "lista vazia"
 compress [x] = [x]
 compress (x : xs)
   | x == head (xs) = compress (xs)
