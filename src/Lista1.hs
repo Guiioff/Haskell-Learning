@@ -1,6 +1,7 @@
 module Lista1
     ( iguais,maioresMedia,potencia2, potencia4, 
-    ouExclusivo, xMaior,xMenor, somaInclu,somaExclu
+    ouExclusivo, xMaior,xMenor, somaInclu,somaExclu,multiplos,multSum, mod2, 
+    sequen, arranjo, maiorLista
     ) where
 
 -- Q1
@@ -53,5 +54,43 @@ somaExclu a b
     | a == b = 0
     | a < b = sum [a+1 .. b-1]
     | otherwise = sum [b+1 .. a-1]
+
+--Q8
+multiplos :: Int -> Int -> Int -> [Int]
+multiplos n1 n2 n3
+    | n1 == n2 = []
+    | n1 < n2 = [x | x <- [n1 .. n2], mod x n3 == 0]
+    | n1 > n2 = [x | x <- [n2 .. n1], mod x n3 == 0]
+
+--Q9
+multSum :: Num a => Int -> a -> a
+multSum x y = sum (replicate x y)
+
+--Q10
+mod2 :: Int -> Int -> Int
+mod2 x y = if x > y then mod2 (x-y) y else x
+
+--Q11
+sequen :: Floating a => Int -> a 
+sequen pos = if pos == 1 then sqrt(6) else sqrt(6 + sequen (pos-1))
+
+--Q12
+fatorial :: Int -> Int
+fatorial x = product [1 .. x]
+
+arranjo :: Int -> Int -> Int
+arranjo n p = (fatorial n) `div` fatorial (n-p)
+
+--Q13
+posicao :: Eq a => [a] -> a -> Int
+posicao (x:xs) pos = if x == pos then 1 else 1 + posicao xs pos
+
+maiorEl :: [Int] -> Int
+maiorEl l = maximum (l)
+
+maiorLista :: [Int] -> (Int,Int)
+maiorLista l = (maior, posicao l maior)
+    where
+        maior = maximum (l)
 
 
