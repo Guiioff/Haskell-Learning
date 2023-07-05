@@ -57,6 +57,7 @@ somaExclu a b
 
 --Q8
 multiplos :: Int -> Int -> Int -> [Int]
+multiplos _ _ _ = error "Numeros invalidos"
 multiplos n1 n2 n3
     | n1 == n2 = []
     | n1 < n2 = [x | x <- [n1 .. n2], mod x n3 == 0]
@@ -72,25 +73,26 @@ mod2 x y = if x > y then mod2 (x-y) y else x
 
 --Q11
 sequen :: Floating a => Int -> a 
-sequen pos = if pos == 1 then sqrt(6) else sqrt(6 + sequen (pos-1))
+sequen pos = if pos == 1 then sqrt 6 else sqrt(6 + sequen (pos-1))
 
 --Q12
 fatorial :: Int -> Int
 fatorial x = product [1 .. x]
 
 arranjo :: Int -> Int -> Int
-arranjo n p = (fatorial n) `div` fatorial (n-p)
+arranjo n p = fatorial n `div` fatorial (n-p)
 
 --Q13
 posicao :: Eq a => [a] -> a -> Int
+posicao _ a = -1
 posicao (x:xs) pos = if x == pos then 1 else 1 + posicao xs pos
 
 maiorEl :: [Int] -> Int
-maiorEl l = maximum (l)
+maiorEl l = maximum l
 
 maiorLista :: [Int] -> (Int,Int)
 maiorLista l = (maior, posicao l maior)
     where
-        maior = maximum (l)
+        maior = maximum l
 
 
