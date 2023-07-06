@@ -1,6 +1,6 @@
 module Lista99
     ( myLast, myButLast,elementAt,myLength,myReverse,
-    isPalindrome,compress,pack,encode,dupli,repli
+    isPalindrome,compress,pack,encode,dupli
     ) where
 
 -- https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems 
