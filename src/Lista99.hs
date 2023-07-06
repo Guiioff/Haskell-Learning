@@ -1,13 +1,6 @@
 module Lista99
-    ( myLast,
-    myButLast,
-    elementAt,
-    myLength,
-    myReverse,
-    isPalindrome,
-    compress,
-    pack,
-    encode
+    ( myLast, myButLast,elementAt,myLength,myReverse,
+    isPalindrome,compress,pack,encode,dupli,repli
     ) where
 
 -- https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems 
@@ -59,3 +52,8 @@ pack (x:xs) = (x : takeWhile (==x) xs) : pack (dropWhile (==x) xs)
 encode :: Eq a => [a] -> [(Int, a)]
 encode [] = []
 encode (x:xs) = (length $ x : takeWhile (==x) xs, x) : encode (dropWhile (==x) xs)
+
+--Q14
+dupli :: [a] -> [a]
+dupli [] = []
+dupli (x:xs) = x : x : dupli xs
