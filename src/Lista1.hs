@@ -57,7 +57,7 @@ somaExclu a b
 
 --Q8
 multiplos :: Int -> Int -> Int -> [Int]
-multiplos _ _ _ = error "Numeros invalidos"
+multiplos _ _ _ = []
 multiplos n1 n2 n3
     | n1 == n2 = []
     | n1 < n2 = [x | x <- [n1 .. n2], mod x n3 == 0]
@@ -84,11 +84,8 @@ arranjo n p = fatorial n `div` fatorial (n-p)
 
 --Q13
 posicao :: Eq a => [a] -> a -> Int
-posicao _ a = -1
+posicao [] _ = -1
 posicao (x:xs) pos = if x == pos then 1 else 1 + posicao xs pos
-
-maiorEl :: [Int] -> Int
-maiorEl l = maximum l
 
 maiorLista :: [Int] -> (Int,Int)
 maiorLista l = (maior, posicao l maior)

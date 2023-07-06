@@ -18,6 +18,7 @@ myLast l = l !! (length l - 1)
 
 --Q2
 myButLast :: [a] -> a
+myButLast [] = error "Lista Vazia"
 myButLast (_ : xs) = xs !! (length xs - 2)
 
 --Q3
@@ -27,7 +28,7 @@ elementAt l pos = l !! (pos - 1)
 --Q4
 myLength :: [a] -> Int
 myLength [] = 0
-myLength (_ : xs) = 1 + myLength (xs)
+myLength (_ : xs) = 1 + myLength xs
 
 --Q5
 myReverse :: [a] -> [a]
