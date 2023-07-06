@@ -28,6 +28,7 @@ library
       Lib
       Lista1
       Lista99
+      ListaRecursao
   other-modules:
       Paths_Haskell_Learning
   hs-source-dirs:
