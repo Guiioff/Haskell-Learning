@@ -1,6 +1,6 @@
 module Lista99
     ( myLast, myButLast,elementAt,myLength,myReverse,
-    isPalindrome,compress,pack,encode,dupli,repli
+    isPalindrome,compress,pack,encode,dupli,repli,split
     ) where
 
 -- https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems 
@@ -65,3 +65,6 @@ repli (x:xs) quant = replicate quant x ++ repli xs quant
 
 --Q16
 
+--Q17
+split :: [a] -> Int -> [[a]]
+split l num = [take num l , drop num l]
