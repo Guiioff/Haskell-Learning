@@ -92,4 +92,3 @@ maiorLista l = (maior, posicao l maior)
     where
         maior = maximum l
 
-

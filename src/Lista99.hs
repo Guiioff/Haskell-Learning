@@ -1,6 +1,6 @@
 module Lista99
     ( myLast, myButLast,elementAt,myLength,myReverse,
-    isPalindrome,compress,pack,encode,dupli
+    isPalindrome,compress,pack,encode,dupli,repli
     ) where
 
 -- https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems 
@@ -57,3 +57,11 @@ encode (x:xs) = (length $ x : takeWhile (==x) xs, x) : encode (dropWhile (==x) x
 dupli :: [a] -> [a]
 dupli [] = []
 dupli (x:xs) = x : x : dupli xs
+
+--Q15
+repli :: [a] -> Int -> [a]
+repli [] _ = []
+repli (x:xs) quant = replicate quant x ++ repli xs quant
+
+--Q16
+
