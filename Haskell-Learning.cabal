@@ -25,9 +25,11 @@ source-repository head
 
 library
   exposed-modules:
+      Atv1
       Lib
       Lista1
       Lista99
+      ListaAltaOrdem
       ListaRecursao
   other-modules:
       Paths_Haskell_Learning
