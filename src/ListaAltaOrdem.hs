@@ -1,6 +1,9 @@
 module ListaAltaOrdem 
 (listaImpares, posicaoLista, repete1, repete2, palindromo,
-listaFibo, funcaoAll, funcaoAny, funcaoTakewhile, funcaoDropwhile) 
+listaFibo, funcaoAll, funcaoAny, funcaoTakewhile, funcaoDropwhile,
+mapFoldr, filterFoldr, dec2int, mapUnfold, altMap, iterateUnfold,
+curry', uncurry',
+) 
 where
 
 insertionSort :: Ord a => [a] -> [a]
@@ -80,4 +83,38 @@ funcaoDropwhile _ [] = []
 funcaoDropwhile func (x:xs) = if func x then funcaoDropwhile func xs else x : xs
 
 --Q7
+mapFoldr :: Foldable t1 => (t2 -> a) -> t1 t2 -> [a]
+mapFoldr func = foldr (\x y -> func x : y) []
+
+filterFoldr :: Foldable t => (a -> Bool) -> t a -> [a]
+filterFoldr func =  foldr(\x y -> if func x then x : y else y) []
+
+--Q8
+dec2int :: (Foldable t, Num b) => t b -> b
+dec2int l = foldl (\x y -> x * 10 + y) 0 l
+
+--Q9
+unfold :: (t -> Bool) -> (t -> a) -> (t -> t) -> t -> [a]
+unfold p h t x 
+       | p x = []
+       | otherwise = h x : unfold p h t (t x)
+
+mapUnfold :: Eq b => (b -> a) -> [b] -> [a]
+mapUnfold f = unfold (==[]) (f . head) tail
+
+
+iterateUnfold :: (a -> a) -> a -> [a]
+iterateUnfold = unfold (const False) id 
+
+--Q10
+altMap :: (a -> b) -> (a -> b) -> [a] -> [b]
+altMap _ _ [] = []
+altMap f1 f2 (x:xs) = f1 x : altMap f2 f1 xs 
+
+--Q11
+curry' :: ((a, b) -> t) -> a -> b -> t
+curry' f x y = f (x,y)
+
+uncurry' :: (t1 -> t2 -> t3) -> (t1, t2) -> t3
+uncurry' f (x,y) = f x y
 
