@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Atv1
+      Atv2
       Lib
       Lista1
       Lista99
